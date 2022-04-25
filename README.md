@@ -1,6 +1,6 @@
 # LAB - Class 06
 
-## Authors: Polo Gonzolaz & Matthew Rangel
+## Authors: Polo Gonzalaz & Matthew Rangel
 
 ## Links and Resources
 
