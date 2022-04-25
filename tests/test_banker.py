@@ -1,7 +1,7 @@
 import pytest
 from ten_thousand.banker import Banker
 
-pytestmark = [pytest.mark.version_1, pytest.mark.version_2]
+# pytestmark = [pytest.mark.version_1, pytest.mark.version_2]
 
 
 def test_new_banker():
