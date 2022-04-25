@@ -1,3 +1,4 @@
+from os import stat
 import random
 
 class GameLogic:
@@ -10,4 +11,8 @@ class GameLogic:
     for i in range(n):
       temp.append(random.randint(1,6))
     return tuple(temp)
+
+  @staticmethod
+  def calculate_score(roll):
+    array.roll.points
 
