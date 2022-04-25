@@ -16,7 +16,7 @@ Tests -->
 
 ## How do you run tests?
 
-1. Created test and ran `pytest` on 
+1. Created test and ran `pytest` on game_logic.py
 2. Imported formula from series module to test_series module
 3. Run `pytest`
 4. Fleshed out formula in series module
