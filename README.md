@@ -1,6 +1,6 @@
 # LAB - Class 06
 
-## Authors: Polo Gonzalaz & Matthew Rangel
+## Authors: Polo Gonzalez & Matthew Rangel
 
 ## Links and Resources
 
@@ -16,7 +16,7 @@ Tests -->
 
 ## How do you run tests?
 
-1. Created test and ran `pytest`
+1. Created test and ran `pytest` on 
 2. Imported formula from series module to test_series module
 3. Run `pytest`
 4. Fleshed out formula in series module
