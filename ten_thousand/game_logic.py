@@ -1,4 +1,4 @@
-from os import stat
+from collections import Counter
 import random
 
 class GameLogic:
@@ -14,5 +14,16 @@ class GameLogic:
 
   @staticmethod
   def calculate_score(roll):
-    array.roll.points
+    score = 0
+    c = Counter(roll)
+    if len(c) == 6:
+      return 1500
+    # if len(c[2]) == 2:
+    for number_rolled in c:
+      if c[number_rolled] >= 3:
+        if number_rolled == 1:
+          return (number_rolled * 100 * (c[number_rolled] - 2)) * 10
+        else:
+          return number_rolled * 100 * (c[number_rolled] - 2)
+    
 
