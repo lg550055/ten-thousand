@@ -30,7 +30,7 @@ class Game:
         else:
           dice -= len(prompt)
           roll_tuple = tuple([int(ch) for ch in prompt])
-          points = GameLogic.calculate_score(roll_tuple) # needs work
+          points = GameLogic.calculate_score(roll_tuple)
           player1.shelf(points)
           print(f'You have {player1.shelved} unbanked points and {dice} dice remaining')
           print('(r)oll again, (b)ank your points or (q)uit:')
@@ -38,7 +38,7 @@ class Game:
           if prompt == 'q':
             break
           if prompt == 'b':
-            print(f'You banked {player1.shelved} points in round {turn}') # sub 1 for variable
+            print(f'You banked {player1.shelved} points in round {turn}')
             player1.bank()
             print(f'Total score is {player1.balance} points')
             turn += 1
