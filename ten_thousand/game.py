@@ -21,25 +21,33 @@ class Game:
       roll = roller(dice)
       for e in roll:
         roll_string += str(e) + ' '
-      print(f'*** {roll_string}***')
 
-      if not GameLogic.calculate_score(roll):
-        print('****************************************')
-        print('**        Zilch!!! Round over         **')
-        print("****************************************")
-        print(f'You banked 0 points in round {turn}')
-        print(f'Total score is {player1.balance} points')
-        return True
-        
-      print('Enter dice to keep, or (q)uit:')
-      prompt = input('> ')
-      if prompt == 'q':
-        return False 
+      valid_keepers = False
+      while not valid_keepers:
+        print(f'*** {roll_string}***')
+        if not GameLogic.calculate_score(roll):
+          print('****************************************')
+          print('**        Zilch!!! Round over         **')
+          print("****************************************")
+          print(f'You banked 0 points in round {turn}')
+          print(f'Total score is {player1.balance} points')
+          return True
+        print('Enter dice to keep, or (q)uit:')
+        prompt = input('> ').replace(' ','')
+        if prompt == 'q':
+          return False
+        keep_tuple = tuple([int(ch) for ch in prompt])
+        valid_keepers = GameLogic.validate_keepers(roll, keep_tuple)
+        if not valid_keepers:
+          print('Cheater!!! Or possibly made a typo...')
 
-      roll_tuple = tuple([int(ch) for ch in prompt])
-      points = GameLogic.calculate_score(roll_tuple)
+      points = GameLogic.calculate_score(keep_tuple)
       player1.shelf(points)
       print(f'You have {player1.shelved} unbanked points and {dice-len(prompt)} dice remaining')
+      if dice == len(prompt):
+        dice = 6
+      else:
+        dice -= len(prompt)
       print('(r)oll again, (b)ank your points or (q)uit:')
       prompt = input('> ')
       if prompt == 'q':
@@ -49,10 +57,6 @@ class Game:
         player1.bank()
         print(f'Total score is {player1.balance} points')
         return True
-      if dice == len(prompt):
-        dice = 6
-      else:
-        dice -= len(prompt)
 
   def play(self, roller=GameLogic.roll_dice):
     print('Welcome to Ten Thousand')

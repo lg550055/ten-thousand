@@ -6,6 +6,10 @@ class GameLogic:
   #   self.n = n
 
   @staticmethod
+  def get_scorers(roll):
+    return tuple([e for e in roll if e ==1 or e == 5])
+
+  @staticmethod
   def validate_keepers(roll, keepers):
     roll_list = list(roll)
     for k in keepers:
