@@ -2,12 +2,10 @@ from collections import Counter
 from random import randint
 
 class GameLogic:
-  # def __init__(self,n):
-  #   self.n = n
+  # def __init__(self, roll):
+  #   self.roll = roll
 
-  @staticmethod
-  def get_scorers(roll):
-    return tuple([e for e in roll if e ==1 or e == 5])
+  
 
   @staticmethod
   def validate_keepers(roll, keepers):
@@ -60,3 +58,15 @@ class GameLogic:
         score += 50
     return score
 
+
+  @staticmethod
+  def get_scorers(roll):
+    scorers = []
+    roll_score = GameLogic.calculate_score(roll)
+    
+    for i in range(len(roll)):
+      roll_without_i = tuple([roll[j] for j in range(len(roll)) if j != i])
+      if roll_score != GameLogic.calculate_score(roll_without_i):
+        scorers.append(roll[i])
+    
+    return tuple(scorers)

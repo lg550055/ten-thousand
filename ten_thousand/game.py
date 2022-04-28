@@ -2,8 +2,9 @@ from ten_thousand.game_logic import GameLogic
 from ten_thousand.banker import Banker
 
 class Game:
-  def __init__(self):
-    pass
+  def __init__(self, num_rounds=20):
+    self.num_rounds = num_rounds
+    
 
   def zilch(self, roll):
     print('****************************************')
@@ -68,15 +69,13 @@ class Game:
       turn = 1
       player1 = Banker()
       playing = True
-      while playing:
+      while playing and turn < self.num_rounds + 1:
         playing = self.play_round(player1, turn, roller)
         turn += 1
       print(f'Thanks for playing. You earned {player1.balance} points')
 
 if __name__ == "__main__":
   game = Game()
-  def fake_roller(dice):
-    return (2,2,3,4,6,6)
   
   game.play()
 
