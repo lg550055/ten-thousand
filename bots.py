@@ -136,10 +136,13 @@ class NervousNellie(BaseBot):
         return "b"
 
 
-class YourBot(BaseBot):
+class zilch_zen(BaseBot):
     def _roll_bank_or_quit(self):
-        """your logic here"""
-        return "b"
+        """zilch_zen will play while dice is greater than 3 and unbanked points less than 500"""
+        if self.dice_remaining > 3 and self.unbanked_points < 500:
+            return "r"
+        else:
+            return "b"
 
     def _enter_dice(self):
         """simulate user entering which dice to keep.
@@ -148,7 +151,37 @@ class YourBot(BaseBot):
         return super()._enter_dice()
 
 
+class zilch_zen_2(BaseBot):
+    def _roll_bank_or_quit(self):
+        """zilch_zen will play while dice is greater than 1 and unbanked points less than 500"""
+        if self.dice_remaining > 1 and self.unbanked_points < 500:
+            return "r"
+        else:
+            return "b"
+
+    def _enter_dice(self):
+        """simulate user entering which dice to keep.
+        Defaults to all scoring dice"""
+
+        return super()._enter_dice()
+
+class zilch_zen_3(BaseBot):
+    def _roll_bank_or_quit(self):
+        """zilch_zen will play while dice is greater than 1 and unbanked points less than 1000"""
+        if self.dice_remaining > 1 and self.unbanked_points < 1000:
+            return "r"
+        else:
+            return "b"
+
+    def _enter_dice(self):
+        """simulate user entering which dice to keep.
+        Defaults to all scoring dice"""
+
+        return super()._enter_dice()
+    
 if __name__ == "__main__":
-    num_games = 100
+    num_games = 25
     NervousNellie.play(num_games)
-    YourBot.play(num_games)
+    zilch_zen.play(num_games)
+    zilch_zen_2.play(num_games)
+    zilch_zen_3.play(num_games)
