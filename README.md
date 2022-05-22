@@ -8,6 +8,8 @@ It also creates a robot (bot) to automate play using different strategies.
 
 ## Authors: Polo Gonzalez & Matthew Rangel
 
+Created using test-driven development (TDD).
+
 ## Requirements:
 
 Python3 environment, with one main requirement: Pytest (pip install pytest)
